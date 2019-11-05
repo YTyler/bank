@@ -12,7 +12,7 @@
 
       <div class="card">
         <div class="card-header">
-          <h3>Deposit or Withdraw Funds</h3>
+          <h2>Making Bank</h2>
         </div>
         <div class="card-body">
           <form id="fundForm">
@@ -25,11 +25,16 @@
           <form id="deposit-withdrawal">
             <h4>Deposit</h4>
             <input id='deposit' type="number" min=0>
-            <h4>Withdrawl</h4>
+            <h4>Withdrawal</h4>
             <input id= "withdrawal"type="number" min=0>
             <br>
             <button id = 'editBalance' type="submit" name="button">Submit Changes</button>
           </form>
+        </div>
+      </div>
+      <div class="card balance-card">
+        <div class="card-body">
+          <h4>Your Account Balance is: <span id='balance'></span></h4>
         </div>
       </div>
     </div>
