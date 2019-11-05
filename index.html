@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/jquery-3.4.1.js"></script>
+    <script src="js/scripts.js" ></script>
+    <title>Making Bank</title>
+  </head>
+  <body>
+    <div class="container">
+
+      <div class="card">
+        <div class="card-header">
+          <h3>Deposit or Withdraw Funds</h3>
+        </div>
+        <div class="card-body">
+          <form id="fundForm">
+            <h4>How much would you like to initially deposit?</h4>
+            <input id= "initial" type="number" min=0>
+            <button id ='initialButton' type="submit" name="button">Create Account</button>
+          </form>
+
+          <!-- deposit/withdrawal -->
+          <form id="deposit-withdrawal">
+            <h4>Deposit</h4>
+            <input id='deposit' type="number" min=0>
+            <h4>Withdrawl</h4>
+            <input id= "withdrawal"type="number" min=0>
+            <br>
+            <button id = 'editBalance' type="submit" name="button">Submit Changes</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
