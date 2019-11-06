@@ -95,6 +95,7 @@ $(document).ready(function(){
     if (initialAmt) {
       newAccount = new BankAccount(initialAmt);
       bank.addAccount(newAccount);
+      currentId = bank.currentId;
       console.log(bank);
       $('#fundForm').hide();
       $('#deposit-withdrawal').show();
