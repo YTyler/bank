@@ -16,6 +16,7 @@ Directory.prototype.addAccount = function(account){
   this.accounts.push(account);
 
 }
+
 Directory.prototype.findAccount = function(searchId) {
   for (var i = 0; i < this.accounts.length; i++){
     if (this.accounts[i]) {
@@ -62,9 +63,10 @@ $(document).ready(function(){
   var newAccount;
   var currentId;
   var bank = new Directory();
-  bank.addAccount(new BankAccount(33));
-  bank.addAccount(new BankAccount(44));
-  bank.addAccount(new BankAccount(11));
+  bank.addAccount(new BankAccount());
+  // bank.addAccount(new BankAccount(44));
+  // bank.addAccount(new BankAccount(11));
+  console.log(bank)
 
   $('#existingUser').click(function(){
     $('#startMenu').hide();
@@ -117,6 +119,7 @@ $(document).ready(function(){
 
 
       $('#balance').text('$' + newAccount.balance);
+      $("#accountId").text(newAccount.id)
       $(".balance-card").show();
       bank.updateAccount(newAccount, currentId)
       console.log(bank)
