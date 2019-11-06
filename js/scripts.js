@@ -31,6 +31,17 @@ Directory.prototype.deleteAccount = function(searchId){
 }
 
 
+Directory.prototype.updateAccount = function(account, searchId) {
+   for (var i = 0; i < this.accounts.length; i++){
+    if (this.accounts[i]) {
+      if (this.accounts[i].id === searchId) {
+        this.accounts[i] = account;
+      }
+    }
+  }
+}
+
+
 //Bank Account Business Logic
 function BankAccount(amount = 0){
 
@@ -48,16 +59,43 @@ BankAccount.prototype.withdrawal = function (amount){
 
 $(document).ready(function(){
 
-var newAccount;
+  var newAccount;
+  var currentId;
+  var bank = new Directory();
+  bank.addAccount(new BankAccount(33));
+  bank.addAccount(new BankAccount(44));
+  bank.addAccount(new BankAccount(11));
+
+  $('#existingUser').click(function(){
+    $('#startMenu').hide();
+    $('#findForm').show()
+  })
+  $('#newUser').click(function(){
+    $('#startMenu').hide();
+    $('#fundForm').show();
+  })
+
+  //Find Existing User Account by ID
+  $('#findForm').submit(function(event){
+    event.preventDefault();
+    var userId = parseInt($('#search').val());
+    newAccount = bank.findAccount(userId);
+    currentId = (userId);
+    $('#findForm').hide();
+    $('#deposit-withdrawal').show()
+    console.log(bank);
+  })
 
   $("#fundForm").submit(function(event){
     event.preventDefault();
 
     var initialAmt = parseInt($("#initial").val());
 
+
     if (initialAmt) {
       newAccount = new BankAccount(initialAmt);
-      console.log(newAccount);
+      bank.addAccount(newAccount);
+      console.log(bank);
       $('#fundForm').hide();
       $('#deposit-withdrawal').show();
     } else {
@@ -79,8 +117,8 @@ var newAccount;
 
       $('#balance').text('$' + newAccount.balance);
       $(".balance-card").show();
-
-    //Take form Input deposit/withdrawal
+      bank.updateAccount(newAccount, currentId)
+      console.log(bank)
 
 
   })

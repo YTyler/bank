@@ -9,12 +9,23 @@
   </head>
   <body>
     <div class="container">
-
+      <!-- Initial Deposit -->
       <div class="card">
         <div class="card-header">
           <h2>Making Bank</h2>
         </div>
         <div class="card-body">
+          <div id="startMenu">
+          <button id='existingUser' class='btn btn-info' type="button" name="button">Find Account</button>
+          <button id='newUser' class='btn btn-info' type="button" name="button">Create New Account</button>
+        </div>
+
+          <form id="findForm">
+            <h4>Enter Your Account ID</h4>
+            <input id='search' type="number">
+          </form>
+
+          <!-- Create Account -->
           <form id="fundForm">
             <h4>How much would you like to initially deposit?</h4>
             <input id= "initial" type="number" min=0>
